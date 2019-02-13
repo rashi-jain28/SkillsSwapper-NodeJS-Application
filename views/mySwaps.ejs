@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="index">Home</a>&gt;</li>
+      <li><a href="mySwaps">My Swaps</a></li>
+    </ul>
+    <h1>Skills for Swap</h1>
+    <table id="mySkills">
+      <thead>
+        <tr class="w3-red">
+          <th>&nbsp;Skills</th>
+          <th>Swap Offer</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%  for (var j=0; j < items.length; j++){ %>
+      <tr>
+        <td>&nbsp;<%= items[j].itemName %></a></td>
+        <td><%= swapItems[j].itemName %></td>
+        <% if(status[j] === 'Pending'){ %>
+        <td><a href="mySwaps?action=accept&itemCode=<%=items[j].itemCode %>" class="button">Accept</a>
+          <a href="mySwaps?action=reject&itemCode=<%=items[j].itemCode %>&swapItem=<%=swapItems[j].itemCode%>" class="button">Reject</a></td>
+      <%  }
+        else{ %>
+          <td><a href="mySwaps?action=Withdraw&itemCode=<%=items[j].itemCode %>&swapItem=<%=swapItems[j].itemCode %>" class="button">Withdraw</a>
+      <%  } %>
+        </tr>
+      <%}%>
+        <!-- <tr>
+          <td>&nbsp;<a href="item/C2S1">Microsoft Office</a></td>
+          <td>Computer</td>
+          <td><a href="#" class="button_withdraw">Withdraw swap</a></td>
+        </tr> -->
+      </table>
+    </main>
+    <% include partials/footer.ejs %>
+  </body>
+  </html>

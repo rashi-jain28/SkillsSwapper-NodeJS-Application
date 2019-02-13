@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="../index">Home</a>&gt;</li>
+      <li><a href="../categories">Categories</a>&gt;</li>
+      <li> <a href="item">Item</a></li>
+    </ul>
+    <img  class ="english" src ="<%= item.imageURL %>" alt="person">
+    <div class ="itemCategory">
+      <a href="../categories"><img src="/resources/back.png" class= "back_image"  alt ="back button"></a>
+      <h2><%= item.name %></h2>
+      <h4>Offerings: <%= item.itemName %></h4>
+      <div class ="rating"><b>Category:</b> <%= item.category %><br>
+        <b>Average Rating:</b>
+        <% for(var i=0; i < item.rating; i++) { %>
+          &starf;
+          <%}%>
+        </div>
+        <p>
+          <%= item.description %>
+        </p>
+        <p class="itemp">
+        <form method="POST" >
+             <% if(ownership=="own"){%>
+               <label>Rate your own item :</label>
+               <select name="ItemRating" >
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               </select>
+                 <input  type="submit" formaction="/rate/own/<%=item.itemCode%>" class="buttonUD" value="Submit Rating" >
+               <%}else{%>
+               <label>Rate this Swapped item :</label>
+               <select name="swappedItemRating" >
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               </select>
+               <label>Rate the owner of your swapped item :</label>
+               <select name="swapOwnerRating" >
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               </select>
+               <input  type="submit" formaction="/rate/swap/<%=item.itemCode%>" class="buttonUD" value="Submit Rating" >
+               <%}%>
+         </form>
+       </p>
+
+
+
+      </div>
+    </main>
+
+    <% include partials/footer.ejs %>
+  </body>
+  </html>

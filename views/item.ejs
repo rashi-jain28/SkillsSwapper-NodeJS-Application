@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="../index">Home</a>&gt;</li>
+      <li><a href="../categories">Categories</a>&gt;</li>
+      <li> <a href="item">Item</a></li>
+    </ul>
+    <img  class ="english" src ="<%= item.imageURL %>" alt="person">
+    <div class ="itemCategory">
+      <a href="../categories"><img src="/resources/back.png" class= "back_image"  alt ="back button"></a>
+      <h2><%= item.name %></h2>
+      <h4>Offerings: <%= item.itemName %></h4>
+      <div class ="rating"><b>Category:</b> <%= item.category %><br>
+        <b>Average Rating:</b>
+        <% for(var i=0; i < item.rating; i++) { %>
+          &starf;
+          <%}%>
+        </div>
+        <p>
+          <%= item.description %>
+        </p>
+        <% if(status == 0 && userItem == 0){ %>
+          <a href="../swap/<%= item.itemCode %>" class="button"><img class="swap" alt="" src="/resources/swap.jpg">&nbsp;<b>Swap It</b></a>
+      <% }%>
+      <% if(status != -1 && userItem == 1){ %>
+        <a href="../rate/<%= item.itemCode %>" class="button">&star; Rate it</a>
+      <%}%>
+        <% if(status == 1){ %>
+          <br>
+          You have already swapped this item!!
+            <a href="../rate/<%= item.itemCode %>" class="button">&star; Rate it</a>
+      <% }%>
+        <% if(status == 2){ %>
+          You have an offer to swap .. <a href = "/mySwaps">See the offer </a>
+      <% }%>
+      </div>
+    </main>
+
+    <% include partials/footer.ejs %>
+  </body>
+  </html>

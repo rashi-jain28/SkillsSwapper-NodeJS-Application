@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+
+    <ul class="breadcrumb">
+      <li><a href="index">Home</a>&gt;</li>
+      <li><a href="categories">Categories</a></li>
+    </ul>
+
+    <% for(var j=0; j < categoryList.length; j++){ %>
+      <section>
+        <h2> <%=categoryList[j] %></h2>
+        <article>
+          <header class ="subcategories">
+            <% for(var i=0;i < itemsList.length; i++){
+              if(categoryList[j] === itemsList[i].category){ %>
+                <h3><a href="item/<%=itemsList[i].itemCode %> "> <%= itemsList[i].itemName %></a></h3><br>
+                <%} }%>
+              </header>
+            </article>
+          </section>
+          <% }%>
+        </main>
+        <% include partials/footer.ejs %>
+      </body>
+      </html>

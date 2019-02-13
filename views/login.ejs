@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="login">Login</a></li>
+    </ul>
+
+
+    <form action="/login" method="POST">
+        <table id="loginstyle">
+          <tr>
+            <td><label><b>Email:</label></td>
+            <td><input type="text" name="email" size="40" required/> </td>
+            <td>
+              <%
+              if(errors.email!=undefined){
+                %>
+                <p id ="error"><%=errors.email.msg%></p>
+                <%}%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label><b>Password: </label></td>
+                <td>
+                  <input type="password" name="password" size="40" required/>
+                </td>
+                <td>
+                  <% if(errors.password!=undefined){ %>
+                    <p id ="error"><%=errors.password.msg%></p>
+                    <%}%>
+                  </td>
+                </tr>
+              </table>
+              <input type="submit" class="buttonlogin" value="Sign In "/>
+              <br><br>
+              <%if(dberror!=null){%>
+                <p id ="error">  <%=dberror%></p><br><br>
+
+                <%}%>
+              </form>
+              <p>
+                  Don't have an account? <a href="registration"><b>REGISTER HERE</b></a>
+</p>
+              <!-- <p align="right">
+                Don't have an account? <a href="registration">Register</a>
+              </p> -->
+  </main>
+  <% include partials/footer.ejs %>
+</body>
+</html>

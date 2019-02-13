@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="registration">Registration</a></li>
+    </ul>
+
+    <form action="/registration" method="POST">
+      <table id="loginstyle">
+        <tr>
+          <td><label><b>First Name:</label></td>
+            <td><input type="text" name="fname" size="40" required/> </td>
+            <td>
+              <%
+              if(errors.fname!=undefined){
+                %>
+                <p id ="error"><%=errors.fname.msg%></p>
+                <%}%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label><b>Last Name: </label></td>
+              <td>
+                    <input type="text" name="lname" size="40" required/>
+              </td>
+              <td>
+                    <% if(errors.lname!=undefined){ %>
+                      <p id ="error"><%=errors.lname.msg%></p>
+                      <%}%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label><b>Email Address: </label></td>
+                <td>
+                  <input type="text" name="email" size="40" required/>
+                </td>
+                <td>
+                  <% if(errors.email!=undefined){ %>
+                  <p id ="error"><%=errors.email.msg%></p>
+                  <%}%>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label><b>UserID: </label></td>
+                  <td>
+                    <input type="text" name="userid" size="40" required/>
+                  </td>
+                  <td>
+                    <% if(errors.userid!=undefined){ %>
+                    <p id ="error"><%=errors.userid.msg%></p>
+                    <%}%>
+                  </td>
+                </tr>
+              <tr>
+                <td>
+                  <label><b>Password: </label></td>
+                  <td>
+                    <input type="password" name="password" size="40" required/>
+                  </td>
+                  <td>
+                    <% if(errors.password!=undefined){ %>
+                    <p id ="error"><%=errors.password.msg%></p>
+                    <%}%>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label><b>Address1: </label></td>
+                    <td>
+                      <input type="text" name="address1" size="40" required/>
+                    </td>
+                    <td>
+                      <% if(errors.address1!=undefined){ %>
+                      <p id ="error"><%=errors.address1.msg%></p>
+                      <%}%>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label><b>Address2: </label></td>
+                      <td>
+                        <input type="text" name="address2" size="40"/>
+                      </td>
+                      <td>
+                        <% if(errors.address2!=undefined){ %>
+                        <p id ="error"><%=errors.address2.msg%></p>
+                        <%}%>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label><b>City: </label></td>
+                        <td>
+                          <input type="text" name="city" size="40" required/>
+                        </td>
+                        <td>
+                          <% if(errors.city!=undefined){ %>
+                          <p id ="error"><%=errors.city.msg%></p>
+                          <%}%>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label><b>State: </label></td>
+                          <td>
+                            <input type="text" name="state" size="40" required/>
+                          </td>
+                          <td>
+                            <% if(errors.state!=undefined){ %>
+                            <p id ="error"><%=errors.state.msg%></p>
+                            <%}%>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label><b>PostCode: </label></td>
+                            <td>
+                              <input type="text" name="postcode" size="40" required/>
+                            </td>
+                            <td>
+                              <% if(errors.postcode!=undefined){ %>
+                              <p id ="error"><%=errors.postcode.msg%></p>
+                              <%}%>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label><b>Country: </label></td>
+                              <td>
+                                <input type="text" name="country" size="40" required/>
+                              </td>
+                              <td>
+                                <% if(errors.country!=undefined){ %>
+                                <p id ="error"><%=errors.country.msg%></p>
+                                <%}%>
+                              </td>
+                            </tr>
+
+                      </table>
+                      <input type="submit" class="buttonlogin" value="Register "/>
+                      <br><br>
+                      </form>
+                      <p>
+
+                        <br><br>
+                      </main>
+                      <% include partials/footer.ejs %>
+                    </body>
+                    </html>

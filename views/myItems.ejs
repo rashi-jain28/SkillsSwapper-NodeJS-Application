@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillsSwapper</title>
+  <link rel="stylesheet" type="text/css" href="/resources/style.css">
+</head>
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/user-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+  <main>
+    <ul class="breadcrumb">
+      <li><a href="index">Home</a>&gt;</li>
+      <li><a href="myItems">My Skills</a></li>
+    </ul>
+    <h1>Skills for Swap</h1>
+    <table id="mySkills">
+      <thead>
+        <tr class="w3-red">
+          <th>&nbsp;Skills</th>
+          <th>Category</th>
+          <th>My Rating</th>
+          <th>Swapped</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+      </thead>
+
+      <% for(var j=0; j < items.length; j++){ %>
+      <tr>
+        <td>&nbsp;<a href="../item/<%=items[j].itemCode%>"><%= items[j].itemName%></a></td>
+        <td>&nbsp;<%= items[j].category%></td>
+        <td><% for(var i=0; i < items[j].rating; i++) { %>
+          &starf;
+          <%}%></td>
+        <td><%=items[j].status%></td>
+        <% if(items[j].status != "Swapped"){%>
+          <td><a href="myItems?action=update&itemCode=<%=items[j].itemCode %>" class="button">Update</a></td>
+          <% if(items[j].status === "Available"){%>
+          <td><a href="myItems?action=delete&itemCode=<%=items[j].itemCode %>" class="button">Delete</a></td>
+        <%}  else{ %>
+
+          <td></td>
+        <%}%>
+        </tr>
+      <% }else{ %>
+        <td></td>
+        <td></td>
+          <% } %>
+      <% } %>
+
+                </table>
+                <div class= "detail">
+                  Legend<img class="swap" alt="" src="/resources/swap.jpg"> swap offer available <img class="swap" alt="" src="/resources/tick.png">already swapped
+                </div>
+              </main>
+
+              <% include partials/footer.ejs %>
+            </body>
+            </html>

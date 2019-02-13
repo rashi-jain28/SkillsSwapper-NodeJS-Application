@@ -1,0 +1,61 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SkillsSwapper</title>
+    <link rel="stylesheet" type="text/css" href="/resources/style.css">
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <% include partials/site-navigation.ejs %>
+    <main>
+      <ul class="breadcrumb">
+        <li><a href="../index">Home</a>&gt;</li>
+        <li><a href="../categories">Categories</a>&gt;</li>
+        <li> <a href="swap">Swap</a></li>
+      </ul>
+      <img  class ="english" src ="<%= item.imageURL %>" alt="person">
+      <div class ="itemCategory">
+        <a href="../categories"><img src="/resources/back.png" class= "back_image"  alt ="back button"></a>
+        <h2><%= item.name %></h2>
+        <h4>Offerings: <%= item.itemName %></h4>
+        <div class ="rating"><b>Category:</b> <%= item.category %><br>
+          <b>Average Rating:</b>
+          <% for(var i=0; i < item.rating; i++) { %>
+            &starf;
+            <%}%>
+          </div>
+          <p>
+            <%= item.description %>
+          </p>
+          <br><br>
+          <b>Select an item from your available swaps</b>
+          <table class = "swaptable">
+            <%   if(availableItems.length!=0){%>
+              <form action="/myItems" method="get">
+                <input type="hidden" name="action" value="offer">
+                <input type = "hidden" name="itemOffered" value="<%=item.itemCode%>">
+                <div class="radio-group">
+                <%  for(var j=0; j < availableItems.length; j++){ %>
+                    <input type="radio" name="itemCode" value="<%= availableItems[j].itemCode %>" > <%= availableItems[j].itemName %><br>
+                    <%}%>
+
+                     <button type="submit" class="buttonswap"/>Confirm Swap
+
+                      </button>
+                    </div>
+                    </form>
+                      <% }
+                   else { %>
+                    <br><br>Sorry!! You donot have any available items for swapping.
+                    <br>Please add more items to start swapping again.
+                    <%}%>
+
+                </table>
+              </div>
+
+            </main>
+            <% include partials/footer.ejs %>
+          </body>
+          </html>
