@@ -1,0 +1,139 @@
+use skillswapper
+
+db.dropDatabase()
+
+use skillswapper
+
+db.createCollection('item');
+db.createCollection('offers');
+db.createCollection('user');
+db.createCollection('feedback');
+-------------------------------------------------------------------------------------------------
+
+db.item.insert([
+{
+	"itemCode" : "C1S1",
+        "itemName" : "English Language",
+        "name" : "Jiana Roy",
+        "category" : "Language",
+        "description" : "I am a journalist who spent the last 17 years in the most senior editorial positions at The New York Times, I served as Washington Bureau Chief, Managing Editor and Executive Editor. Before joining the Times, I spent nine years at The Wall Street Journal as the Deputy Washington Bureau Chief and an investigative reporter covering money and politics. I am also a member of the American Academy of Arts & Sciences and The American Philosophical Society. I am willing to teach and help people with the English language.",
+        "rating" : 3,
+        "imageURL" : "/resources/images/eng.jpg",
+        "userID" : "jroy",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C1S2",
+        "itemName" : "French Language",
+        "name" : "Mathew Haden",
+        "category" : "Language",
+        "description" : "I am  an experienced French teacher, with an MA in French Language. I pursued my studies at the Greater University in Paris, lived in France for many years, and have more than ten years of teaching experience teaching French to adults with extraordinary results. My lessons are focused, fun, and engaging, and they guarantee success.I am willing to teach and help people who are interested to learn French language.",
+        "rating" : 4,
+        "imageURL" : "/resources/images/french.jpg",
+        "userID" : "mhaden",
+        "status" : "Available"
+},
+{   
+        "itemCode" : "C1S3",
+        "itemName" : "German Language",
+        "name" : "Vikram Sinha",
+        "category" : "Language",
+        "description" : "My special education as a translator/interpreter enables me to go beyond just speaking German as my native language, I am able to understand students and their difficulties in learning the language and have successfully helped many students reach their goals.I am willing to teach and help people who are interested to learn German language.",
+        "rating" : 3,
+        "imageURL" : "/resources/images/german.jpg",
+        "userID" : "vsinha",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C2S1",
+        "itemName" : "Web/UX developer",
+        "name" : "Jiana Roy",
+        "category" : "Computer",
+        "description" : "I have 3 years of experience in the field of UX developer for Senamen Corportation in New York. Worked on 200+ web properties built with both single page application development and standard multi-page web development Set technical direction for JavaScript application development, including feature development forecasting and scheduling Design and develop enhancements to the client-side framework. I am willing to help others to teach the same",
+        "rating" : 3,
+        "imageURL" : "/resources/images/webDeveloper.jpg",
+        "userID" : "jroy",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C2S2",
+        "itemName" : "Microsoft Office",
+        "name" : "Mathew Haden",
+        "category" : "Computer",
+        "description" : "I am currently working as a Manager in Hesdiya Corporation. I have plentiful knowledge of Microsoft Office tools, how can we use them efficiently and how to avoid other errors related to MS office. It will be fun to resolve  individual queries regarding MS office and to teach them and assist them with the knowledge I have for it.",
+        "rating" : 5,
+        "imageURL" : "/resources/images/msOffice.jpg",
+        "userID" : "mhaden",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C2S3",
+        "itemName" : "Programming Languages - Java",
+        "name" : "Jiana Roy",
+        "category" : "Computer",
+        "description" : "I am a skilled Java Developer with 3+ years of experience in the full SDLC creating dynamic web applications. Updates functionality based on customer requirements to ensure excellent user experience. I have expertise in  JSP and Servlets.I have also worked on  J2EE design patterns to create application, including utilizing EJB for business logic. I am willing to share my knowledge to the fullest in order to help people stuck with the different queries.",
+        "rating" : 4,
+        "imageURL" : "/resources/images/java.jpg",
+        "userID" : "jroy",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C3S1",
+        "itemName" : "Guitar",
+        "name" : "Vikram Sinha",
+        "category" : "Music",
+        "description" : "I am a guitarist who loves to teach guitar to others as it is my passion.I can teach you how to play guitar from scratch , how to hold the guitar, the numbering systems of the guitar, the parts of the guitar, the guitar string names, how to tune your guitar, how to strum the guitar, your first guitar chords, two more guitar chords, how to play your first song, musical strumming tips, and where to go from here.If you already have some previous experience playing the guitar than you are good to start with.If you want to accelerate your progress we recommend you join Guitareooo.com.",
+        "rating" : 4,
+        "imageURL" : "/resources/images/guitar.jpg",
+        "userID" : "vsinha",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C3S2",
+        "itemName" : "Piano",
+        "name" : "Mathew Haden",
+        "category" : "Music",
+        "description" : "Nothing is better than playing to real music! So you’ll get custom play-alongs to help you apply specific skills PLUS full-song breakdowns of popular music so you can play-along to your favorite tunes and I am here to teach you as much as I can.",
+        "rating" : 4,
+        "imageURL" : "/resources/images/piano.jpg",
+        "userID" : "mhaden",
+        "status" : "Available"
+},
+{
+        "itemCode" : "C3S3",
+        "itemName" : "Singing",
+        "name" : "Vikram Sinha",
+        "category" : "Music",
+        "description" : "I have national singing experience and have won so many singing awards too. I can teach how to sing and help guide beginner singers through the early stages of vocal progression, assisting with pitch training, developing timbre and keeping steady tempo. My core philosophy is that the best way  to gain musical proficiency is through performance-based music education. All of my programs include a performance aspect.",
+        "rating" : 4,
+        "imageURL" : "/resources/images/sing.jpg",
+        "userID" : "vsinha",
+        "status" : "Available"
+}
+]);
+
+-------------------------------------------------------------------
+
+Note: Please register the users with the following userIds, email, so that items will be mapped to the correct person as available in the databse.
+
+Email:	vsinha@gmail.com
+UserID:	vsinha
+
+EMail:	mhaden@gmail.com
+UserID:	mhaden
+
+Email:	jroy@gmail.com
+UserId:	jroy
+
+
+Note: Initially the user collection is empty, so kindly register first.(You cannot sign in until you register)
+This is done, as I have used hashing for saving of the password in the collection. 
+
+
+
+
+
+
+
+
+
